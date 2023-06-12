@@ -1,0 +1,52 @@
+### CREAR
+POST http://localhost:9090/api/v1/indicador/crear
+Content-Type: application/json
+Accept: application/json
+
+{
+  "area": "Contabilidad",
+  "descripcion": "Saldos no conciliados",
+  "riesgo": "Que el personal realice manipulacion de datos contables",
+  "periodicidad": "Mensual",
+  "formula": "Saldos no conciliados / Total de saldos",
+  "unidad_medida": "Numero",
+  "valor": 0.40,
+  "limite_alerta": 0.10,
+  "umbral_verde": 0.1,
+  "umbral_amarillo_min": 0.1,
+  "umbral_rojo": 0.3,
+  "umbral_amarillo_max": 0.3
+}
+
+### OBTENER TODOS
+GET http://localhost:9090/api/v1/indicador
+
+### OBTENER POR ID
+GET http://localhost:9090/api/v1/indicador/1
+
+### ACTUALIZAR
+PUT http://localhost:9090/api/v1/indicador/2
+Content-Type: application/json
+Accept: application/json
+
+{
+
+  "area": "Contabilidad",
+  "descripcion": "Saldos no conciliados",
+  "riesgo": "Que el personal realice manipulacion de datos contables",
+  "periodicidad": "Mensual",
+  "formula": "Saldos no conciliados / Total de saldos",
+  "unidad_medida": "Numero",
+  "valor": 0.09,
+  "limite_alerta": 0.10,
+  "umbral_verde": 0.1,
+  "umbral_amarillo_min": 0.1,
+  "umbral_rojo": 0.3,
+  "umbral_amarillo_max": 0.3
+}
+
+### VALIDAR INDICADOR
+POST http://localhost:9090/api/v1/indicador/2/validar-umbrales
+
+### MONITOREAR
+POST http://localhost:9090/api/v1/indicador/monitoreo
